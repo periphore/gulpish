@@ -1,0 +1,22 @@
+{
+  "name": "gulpish",
+  "version": "0.0.0",
+  "description": "Gulp framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jervenclark/gulpish.git"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "Jerven Clark Chua <jervenclark@gmail.com> (http://jervenclarkchua.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jervenclark/gulpish/issues"
+  },
+  "homepage": "https://github.com/jervenclark/gulpish#readme"
+}
