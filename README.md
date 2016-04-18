@@ -1,8 +1,10 @@
 # Gulpish
 
+[![Build Status](https://travis-ci.org/Periphore/gulpish.svg?branch=master)](https://travis-ci.org/Periphore/gulpish)
+
 ### Introduction
 
-Gulpish is a modular gulp.js task organization that can autoloads gulp dependencies and tasks.
+Gulpish is a modular gulp.js task organization that can autoload gulp dependencies and tasks.
 
 ### Installation
 
