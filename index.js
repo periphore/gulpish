@@ -1,17 +1,33 @@
 'use strict';
 
-var tasks = require('gulp-simple-task-loader'),
-  pluginLoader = require('gulp-load-plugins'),
-  plugins;
+const taskLoader = require('gulp-simple-task-loader'),
+  pluginLoader = require('gulp-load-plugins');
 
-var defaults = {};
+let plugins;
 
 module.exports = function(gulp, args) {
 
-  tasks(setTasks(args || {}), gulp);
-  help(gulp);
+  taskLoader(setTasks(args || {}), gulp);
+  setDefaultTasks(gulp);
 
 };
+
+function setDefaultTasks(gulp) {
+
+  let tasks = [
+    'default',
+    'help',
+  ];
+
+  tasks.forEach(function(task) {
+    gulp.task(
+      task,
+      plugins
+      .taskListing
+      .withFilters(null, tasks.join('|')));
+  });
+
+}
 
 function setTasks(args) {
 
@@ -26,7 +42,7 @@ function setTasks(args) {
 
 function setPlugins(args) {
 
-  var options = {
+  let options = {
     DEBUG: args.DEBUG || false,
     pattern: args.pattern || [
       'gulp-*',
@@ -40,24 +56,17 @@ function setPlugins(args) {
     replaceString: args.replaceString || /^gulp(-|\.)/,
     camelize: args.camelize || true,
     lazy: args.lazy || true
+
   };
 
   plugins = pluginLoader(options);
 
   Object
     .keys(args.plugins || {})
-    .forEach(function mapPlugins(plugin) {
+    .map((plugin) => {
       plugins[plugin] = args.plugins[plugin];
     });
 
   return plugins;
 
-}
-
-function help(gulp) {
-  gulp.task(
-    'default',
-    plugins
-    .taskListing
-    .withFilters(null, 'default'));
 }
