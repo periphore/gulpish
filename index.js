@@ -31,8 +31,10 @@ function setDefaultTasks(gulp) {
 
 function setTasks(args) {
 
+  args = args || {};
+
   return {
-    taskDirectory: args.directory || './tasks',
+    taskDirectory: args.taskDirectory || './tasks',
     filenameDelimiter: args.filenameDelimiter || '-',
     tasknameDelimiter: args.tasknameDelimiter || ':',
     plugins: setPlugins(args)
@@ -56,7 +58,6 @@ function setPlugins(args) {
     replaceString: args.replaceString || /^gulp(-|\.)/,
     camelize: args.camelize || true,
     lazy: args.lazy || true
-
   };
 
   plugins = pluginLoader(options);

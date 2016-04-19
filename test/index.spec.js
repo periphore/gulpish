@@ -1,11 +1,63 @@
 'use strict';
 
-const should = require('chai').should();
+const should = require('chai').should(),
+  rewire = require('rewire'),
+  gulpish = rewire('../');
 
-describe('Check', function() {
+describe('Gulpish', function() {
 
-  it('should equal to true', function() {
-    (true).should.equal(true);
+  var setTasks;
+
+  beforeEach(function() {
+    setTasks = gulpish.__get__('setTasks');
+  })
+
+  describe('Task loader settings with no options passed', function() {
+
+    var options;
+
+    beforeEach(function() {
+      options = setTasks();
+    });
+
+    it('should set default taskDirectory', function() {
+      (options.taskDirectory).should.equal('./tasks');
+    });
+
+    it('should set default filenameDelimiter', function() {
+      (options.filenameDelimiter).should.equal('-');
+    });
+
+    it('should set default tasknameDelimiter', function() {
+      (options.tasknameDelimiter).should.equal(':');
+    });
+
+  });
+
+  describe('Task loader settings override', function() {
+
+    var options;
+
+    beforeEach(function() {
+      options = setTasks({
+        taskDirectory: './gulp/tasks',
+        filenameDelimiter: '_',
+        tasknameDelimiter: '+'
+      });
+    });
+
+    it('should override default taskDirectory', function() {
+      (options.taskDirectory).should.equal('./gulp/tasks');
+    });
+
+    it('should override default filenameDelimiter', function() {
+      (options.filenameDelimiter).should.equal('_');
+    });
+
+    it('should override default tasknameDelimiter', function() {
+      (options.tasknameDelimiter).should.equal('+');
+    });
+
   });
 
 });

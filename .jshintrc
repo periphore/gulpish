@@ -19,6 +19,9 @@
   "sub": true,
   "maxlen": 80,
   "globals": {
-    "require": true
+    "require": true,
+    "describe": true,
+    "it": true,
+    "beforeEach": true
   }
 }
