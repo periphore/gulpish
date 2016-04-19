@@ -6,15 +6,16 @@ const should = require('chai').should(),
 
 describe('Gulpish', function() {
 
-  var setTasks;
+  var setTasks,
+    setPlugins,
+    options;
 
   beforeEach(function() {
     setTasks = gulpish.__get__('setTasks');
-  })
+    setPlugins = gulpish.__get__('setPlugins');
+  });
 
   describe('Task loader settings with no options passed', function() {
-
-    var options;
 
     beforeEach(function() {
       options = setTasks();
@@ -35,8 +36,6 @@ describe('Gulpish', function() {
   });
 
   describe('Task loader settings override', function() {
-
-    var options;
 
     beforeEach(function() {
       options = setTasks({
