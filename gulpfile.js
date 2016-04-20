@@ -1,10 +1,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-  gulpish = require('./index'),
-  mocha = require('gulp-mocha');
+  gulpish = require('./index');
 
-gulp.task('test', function test() {
-  gulp.src('test/**/*.spec.js')
-    .pipe(mocha({}));
-});
+gulpish(gulp);

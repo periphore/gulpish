@@ -30,7 +30,12 @@ describe('Gulpish', function() {
     });
 
     it('should return default plugin options', function() {
-      expect(app.plugin()).to.be.eql(defaults.plugin);
+      defaults.plugin.replaceString = /^gulp(-|\.)/;
+      expect(app.plugin()).to.be.eql({
+        simpleTaskLoader: require('gulp-simple-task-loader'),
+        taskListing: require('gulp-task-listing'),
+        mocha: require('gulp-mocha'),
+      });
     });
 
   });
@@ -51,18 +56,9 @@ describe('Gulpish', function() {
 
     it('should return default plugin options', function() {
       expect(app.plugin()).to.be.eql({
-        debug: false,
-        pattern: [
-          'gulp-*',
-          'gulp.*'
-        ],
-        scope: [
-          'dependencies',
-          'devDependencies',
-          'peerDependencies'
-        ],
-        camelize: true,
-        lazy: true
+        simpleTaskLoader: require('gulp-simple-task-loader'),
+        taskListing: require('gulp-task-listing'),
+        mocha: require('gulp-mocha'),
       });
     });
 

@@ -7,7 +7,29 @@ const loader = {
 
 let options = {};
 
-module.exports = function gulpish(gulp) {};
+module.exports = function gulpish(gulp) {
+
+  load();
+
+  let plugins = plugin(),
+    tasks = [
+      'default',
+      'help',
+    ];
+
+  options.task.plugins = plugins;
+
+  loader.task(task(), gulp);
+
+  tasks.forEach(function(task) {
+    gulp.task(
+      task,
+      plugins
+      .taskListing
+      .withFilters(null, tasks.join('|')));
+  });
+
+};
 
 function load() {
   let o;
@@ -48,5 +70,6 @@ function task() {
 }
 
 function plugin() {
-  return options.plugin;
+  options.plugin.replaceString = /^gulp(-|\.)/;
+  return loader.plugin(options.plugin);
 }
