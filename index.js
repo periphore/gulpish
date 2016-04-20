@@ -26,7 +26,20 @@ function defaults() {
       "filenameDelimiter": "-",
       "tasknameDelimiter": ":"
     },
-    plugin: {}
+    plugin: {
+      debug: false,
+      pattern: [
+        'gulp-*',
+        'gulp.*'
+      ],
+      scope: [
+        'dependencies',
+        'devDependencies',
+        'peerDependencies'
+      ],
+      camelize: true,
+      lazy: true
+    }
   };
 }
 

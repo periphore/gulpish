@@ -41,6 +41,31 @@ describe('Gulpish', function() {
       gulpish.__set__('options', require('./misc/gulpish'));
     });
 
+    it('should return default task options', function() {
+      expect(app.task()).to.be.eql({
+        taskDirectory: './gulpish/tasks',
+        filenameDelimiter: '_',
+        tasknameDelimiter: '+'
+      });
+    });
+
+    it('should return default plugin options', function() {
+      expect(app.plugin()).to.be.eql({
+        debug: false,
+        pattern: [
+          'gulp-*',
+          'gulp.*'
+        ],
+        scope: [
+          'dependencies',
+          'devDependencies',
+          'peerDependencies'
+        ],
+        camelize: true,
+        lazy: true
+      });
+    });
+
   });
 
 });
