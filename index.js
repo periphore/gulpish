@@ -1,73 +1,39 @@
 'use strict';
 
-const taskLoader = require('gulp-simple-task-loader'),
-  pluginLoader = require('gulp-load-plugins');
-
-let plugins;
-
-module.exports = function(gulp, args) {
-
-  taskLoader(setTasks(args || {}), gulp);
-  setDefaultTasks(gulp);
-
+const loader = {
+  task: require('gulp-simple-task-loader'),
+  plugin: require('gulp-load-plugins')
 };
 
-function setDefaultTasks(gulp) {
+let options = {};
 
-  let tasks = [
-    'default',
-    'help',
-  ];
+module.exports = function gulpish(gulp) {};
 
-  tasks.forEach(function(task) {
-    gulp.task(
-      task,
-      plugins
-      .taskListing
-      .withFilters(null, tasks.join('|')));
-  });
-
+function load() {
+  let o;
+  try {
+    o = require('./gulpish.json');
+  } catch (e) {
+    o = defaults();
+  }
+  options = o;
 }
 
-function setTasks(args) {
-
-  args = args || {};
-
+function defaults() {
   return {
-    taskDirectory: args.taskDirectory || './tasks',
-    filenameDelimiter: args.filenameDelimiter || '-',
-    tasknameDelimiter: args.tasknameDelimiter || ':',
-    plugins: setPlugins(args)
+    task: {
+      "taskDirectory": "./tasks",
+      "filenameDelimiter": "-",
+      "tasknameDelimiter": ":"
+    },
+    plugin: {}
   };
-
 }
 
-function setPlugins(args) {
+function task() {
+  return options.task;
+}
 
-  let options = {
-    DEBUG: args.DEBUG || false,
-    pattern: args.pattern || [
-      'gulp-*',
-      'gulp.*'
-    ],
-    scope: args.scope || [
-      'dependencies',
-      'devDependencies',
-      'peerDependencies'
-    ],
-    replaceString: args.replaceString || /^gulp(-|\.)/,
-    camelize: args.camelize || true,
-    lazy: args.lazy || true
-  };
-
-  plugins = pluginLoader(options);
-
-  Object
-    .keys(args.plugins || {})
-    .map((plugin) => {
-      plugins[plugin] = args.plugins[plugin];
-    });
-
-  return plugins;
-
+function plugin() {
+  return options.plugin;
 }

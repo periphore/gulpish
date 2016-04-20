@@ -1,0 +1,8 @@
+{
+  "task": {
+    "taskDirectory": "./tasks",
+    "filenameDelimiter": "-",
+    "tasknameDelimiter": ":"
+  },
+  "plugin": {}
+}

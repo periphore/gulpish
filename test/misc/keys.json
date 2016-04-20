@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    "directory",
+    "filenameDelimiter",
+    "tasknameDelimiter"
+  ],
+  "plugins": [
+    "debug",
+    "pattern",
+    "scope",
+    "replaceString",
+    "camelize",
+    "lazy",
+    "list"
+  ]
+}
