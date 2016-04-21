@@ -23,30 +23,34 @@ This will load and register tasks for all files defined inside ``` ./tasks ``` d
 
 ### Options
 
-You can pass in an options object as shown below. The values shown below are the defaults.
+You can pass in options by creating a gulpish.json with keys as shown below. The values shown below are the defaults.
 
-    gulpish({
-      taskDirectory: './tasks',
-      filenameDelimiter: '-',
-      tasknameDelimiter: ':',
-      DEBUG: false,
-      pattern: [
-        'gulp-*',
-        'gulp.*'
-      ],
-      scope: [
-        'dependencies',
-        'devDependencies',
-        'peerDependencies'
-      ],
-      replaceString: /^gulp(-|\.)/,
-      camelize: true,
-      lazy: true,
-      plugins: {
-        bump: require('gulp-bump'),
-        mocha: require('mocha')
+    {
+      task: {
+        taskDirectory: './tasks',
+        filenameDelimiter: '-',
+        tasknameDelimiter: ':'
+      },
+      plugin: {
+        debug: false,
+        pattern: [
+          'gulp-*',
+          'gulp.*'
+        ],
+        scope: [
+          'dependencies',
+          'devDependencies',
+          'peerDependencies'
+        ],
+        replaceString: /^gulp(-|\.)/,
+        camelize: true,
+        lazy: true,
+        plugins: {
+          bump: require('gulp-bump'),
+          mocha: require('mocha')
+        }
       }
-    })
+    }
 
 ### Structuring a task
 
