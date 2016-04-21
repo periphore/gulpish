@@ -3,7 +3,7 @@
 const loader = {
   task: require('gulp-simple-task-loader'),
   plugin: require('gulp-load-plugins')
-};
+}, taskListing = require('gulp-task-listing');
 
 let options = {};
 
@@ -22,8 +22,7 @@ module.exports = function gulpish(gulp) {
   tasks.forEach(function(task) {
     gulp.task(
       task,
-      plugins
-      .taskListing
+      taskListing
       .withFilters(null, tasks.join('|')));
   });
 
@@ -34,7 +33,7 @@ module.exports = function gulpish(gulp) {
 function load() {
   let o;
   try {
-    o = require('./gulpish.json');
+    o = require('../../gulpish.json');
   } catch (e) {
     o = defaults();
   }
@@ -50,7 +49,7 @@ function defaults() {
     },
     plugin: {
       debug: false,
-      config: '../../../../package',
+      config: './package',
       pattern: [
         'gulp-*',
         'gulp.*'
