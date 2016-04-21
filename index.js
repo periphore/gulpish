@@ -19,8 +19,6 @@ module.exports = function gulpish(gulp) {
 
   options.task.plugins = plugins;
 
-  loader.task(task(), gulp);
-
   tasks.forEach(function(task) {
     gulp.task(
       task,
@@ -28,6 +26,8 @@ module.exports = function gulpish(gulp) {
       .taskListing
       .withFilters(null, tasks.join('|')));
   });
+
+  loader.task(task(), gulp);
 
 };
 

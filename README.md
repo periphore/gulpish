@@ -6,6 +6,8 @@
 
 Gulpish is a modular gulp.js task organization that can autoload gulp dependencies and tasks.
 
+Complete example [demo](https://github.com/periphore/gulpish-demo) can be found here.
+
 ### Installation
 
     npm install --save gulpish
