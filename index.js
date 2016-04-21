@@ -50,6 +50,7 @@ function defaults() {
     },
     plugin: {
       debug: false,
+      config: '../../../../package',
       pattern: [
         'gulp-*',
         'gulp.*'

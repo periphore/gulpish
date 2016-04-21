@@ -21,8 +21,11 @@ describe('Gulpish', function() {
   describe('Set up with no options file', function() {
 
     before(function() {
+      let options;
       defaults = require('./misc/defaults');
-      gulpish.__set__('options', app.defaults());
+      options = app.defaults();
+      delete options.plugin.config;
+      gulpish.__set__('options', options);
     });
 
     it('should return default task options', function() {
