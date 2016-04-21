@@ -14,7 +14,7 @@
     "gulp"
   ],
   "author": "Jerven Clark Chua <jervenclark@gmail.com> (http://jervenclarkchua.com)",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jervenclark/gulpish/issues"
   },
