@@ -1,6 +1,6 @@
 # Gulpish
 
-[![Build Status](https://travis-ci.org/Periphore/gulpish.svg?branch=master)](https://travis-ci.org/Periphore/gulpish)  [![Dependency Status](https://david-dm.org/periphore/gulpish.svg)](https://david-dm.org/periphore/gulpish)
+[![Build Status](https://travis-ci.org/periphore/gulpish.svg?branch=master)](https://travis-ci.org/periphore/gulpish)  [![Dependency Status](https://david-dm.org/periphore/gulpish.svg)](https://david-dm.org/periphore/gulpish)
 
 ### Introduction
 
