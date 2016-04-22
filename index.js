@@ -49,7 +49,7 @@ function defaults() {
     },
     plugin: {
       debug: false,
-      config: './package',
+      config: require('../../package'),
       pattern: [
         'gulp-*',
         'gulp.*'
