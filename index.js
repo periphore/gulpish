@@ -41,7 +41,7 @@ function load() {
 }
 
 function defaults() {
-  return {
+  let d = {
     task: {
       "taskDirectory": "./tasks",
       "filenameDelimiter": "-",
@@ -49,7 +49,6 @@ function defaults() {
     },
     plugin: {
       debug: false,
-      config: require('../../package'),
       pattern: [
         'gulp-*',
         'gulp.*'
@@ -63,6 +62,12 @@ function defaults() {
       lazy: true
     }
   };
+  try {
+    d.plugin.config = require('../../package')
+  } catch(e) {
+    d.plugin.config = require('./package')
+  }
+  return d;
 }
 
 function task() {
