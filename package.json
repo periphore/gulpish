@@ -21,7 +21,7 @@
   "homepage": "https://github.com/jervenclark/gulpish#readme",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.2.2",
+    "gulp-load-plugins": "^1.4.0",
     "gulp-simple-task-loader": "^1.3.8",
     "gulp-task-listing": "^1.0.1"
   },
