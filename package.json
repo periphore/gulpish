@@ -3,7 +3,9 @@
   "version": "0.1.6",
   "description": "Gulp wrapper",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc --outDir bin"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:periphore/gulpish.git"
@@ -17,7 +19,10 @@
     "url": "https://github.com/jervenclark/gulpish/issues"
   },
   "homepage": "https://github.com/jervenclark/gulpish#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^10.3.1",
+    "commander": "^2.15.1"
+  },
   "devDependencies": {
     "typescript": "^2.9.1"
   }
