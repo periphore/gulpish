@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git@github.com:periphore/gulpish.git"
   },
+  "bin": {
+    "gulpish": "bin/index.js"
+  },
   "keywords": [
     "gulp"
   ],
