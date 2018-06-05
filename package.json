@@ -1,14 +1,12 @@
 {
   "name": "gulpish",
   "version": "0.1.6",
-  "description": "Gulp framework",
+  "description": "Gulp wrapper",
   "main": "index.js",
-  "scripts": {
-    "test": "gulp test"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jervenclark/gulpish.git"
+    "url": "git@github.com:periphore/gulpish.git"
   },
   "keywords": [
     "gulp"
@@ -19,16 +17,8 @@
     "url": "https://github.com/jervenclark/gulpish/issues"
   },
   "homepage": "https://github.com/jervenclark/gulpish#readme",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.2.2",
-    "gulp-simple-task-loader": "^1.3.8",
-    "gulp-task-listing": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "chai": "^3.5.0",
-    "gulp-mocha": "^2.2.0",
-    "mocha": "^2.4.5",
-    "rewire": "^2.5.1"
+    "typescript": "^2.9.1"
   }
 }
