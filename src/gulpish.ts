@@ -3,20 +3,26 @@ import * as yargs from 'yargs';
 
 export class Gulpish {
 
-  argv;
+    cli = yargs;
 
-  constructor() {
-    this.argv = yargs
-      .usage('\nGulpish CLI\n\nUsage: [command]')
-      .help('help').alias('help', 'h')
-      .version('version', '0.1.6').alias('version', 'v')
-      .command('generate', 'generate config', () => {
-	console.log('generate');
-      }).argv;
-  }
+    constructor() {
 
-  run() {}
+        this.cli
+            .usage('\nGulpish CLI\n\nUsage: $0 [commands]')
+            .help('h', 'List of Gulpish CLI commands').alias('h', 'help')
+            .version('v', 'Current version', '0.1.6').alias('v', 'version')
+            .wrap(68)
+            .epilogue('for more information, find our manual at http://npmjs.com/gulpish');
 
+        this.cli
+            .command('init <project> [types..]', 'Bootstrap project', () => {
+            });
 
+        this.cli.argv;
+    }
+
+    run() { }
+
+    generate() { }
 
 }
